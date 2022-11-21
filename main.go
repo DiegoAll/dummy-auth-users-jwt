@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"dummy-api-jwt/handlers"
+	"dummy-api-jwt/middleware"
 	"dummy-api-jwt/server"
 	"fmt"
 	"log"
@@ -42,7 +43,10 @@ func main() {
 }
 
 func BindRoutes(s server.Server, r *mux.Router) {
+	r.Use(middleware.CheckAuthMiddleware(s))
+
 	r.HandleFunc("/", handlers.HomeHandler(s)).Methods(http.MethodGet)
 	r.HandleFunc("/signup", handlers.SignUpHandler(s)).Methods(http.MethodPost)
 	r.HandleFunc("/login", handlers.LoginHandler(s)).Methods(http.MethodPost)
+	r.HandleFunc("/me", handlers.MeHandler(s)).Methods(http.MethodGet)
 }
