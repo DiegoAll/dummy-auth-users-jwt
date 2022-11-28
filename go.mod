@@ -12,3 +12,5 @@ require (
 require github.com/segmentio/ksuid v1.0.4
 
 require golang.org/x/crypto v0.3.0
+
+require github.com/go-sql-driver/mysql v1.6.0

@@ -1,0 +1,16 @@
+FROM mysql:latest
+
+ENV MYSQL_ROOT_PASSWORD=password
+
+COPY up.sql /docker-entrypoint-initdb.d/
+
+
+
+
+#/docker-entrypoint-initdb.d/1.sql    # Preloaded database
+# CMD ["postgres"]
+# CMD ["/usr/bin/falco"]
+
+# remove password 
+
+

@@ -55,9 +55,9 @@ func SignUpHandler(s server.Server) http.HandlerFunc {
 		}
 
 		var user = models.User{
+			Id:       id.String(),
 			Email:    request.Email,
 			Password: string(hashedPassword), // Security
-			Id:       id.String(),
 		}
 
 		err = repository.InsertUser(r.Context(), &user)

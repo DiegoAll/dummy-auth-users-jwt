@@ -1,6 +1,6 @@
 # dummy-auth-users-jwt
 
-Dummy Rest API with Go that implements JWT based authentication.
+Dummy REST API with Go that implements JWT based authentication.
 
         go build main.go
         ./main
@@ -24,3 +24,9 @@ Dummy Rest API with Go that implements JWT based authentication.
         "email": "oelo@gmail.com",
         "password": "oelo"
         }
+
+
+
+### Use with MySQL (change DSN in .env)
+
+        DATABASE_URL="root:passwordrepo@tcp(127.0.0.1:3306)/dummyusers"

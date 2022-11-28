@@ -59,7 +59,8 @@ func (b *Broker) Start(binder func(s Server, r *mux.Router)) {
 	b.router = mux.NewRouter()
 	binder(b, b.router)
 
-	repo, err := database.NewPostgresRepository(b.config.DatabaseUrl)
+	// repo, err := database.NewPostgresRepository(b.config.DatabaseUrl)
+	repo, err := database.NewMySQLRepository(b.config.DatabaseUrl)
 	if err != nil {
 		log.Fatal(err)
 	}
